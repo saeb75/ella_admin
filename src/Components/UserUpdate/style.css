@@ -1,0 +1,13 @@
+.updateForm {
+}
+
+.updateAvatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.ant-form-item-label {
+  text-align: right !important;
+}

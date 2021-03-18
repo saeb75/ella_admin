@@ -1,0 +1,22 @@
+.formBox {
+  width: 500px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0px 0px 5px rgba(165, 145, 145, 0.664);
+  padding: 50px;
+}
+.form_container {
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+  height: 100vh;
+}
+
+.SignInContainer {
+  background-color: cadetblue;
+}
+.signIn_header {
+  text-align: center;
+  margin-bottom: 35px;
+}

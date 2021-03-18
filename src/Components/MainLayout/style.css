@@ -1,0 +1,19 @@
+.myAvatar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+@media only screen and (max-width: 800px) {
+  .collapseDiActive {
+    display: none;
+  }
+  .collapseActive {
+    display: block;
+  }
+}
+.layoutContainer {
+  min-height: 100vh;
+}
