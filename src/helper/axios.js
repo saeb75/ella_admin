@@ -7,9 +7,13 @@ const { default: axios } = require("axios");
 /* const token = localStorage.getItem("token"); */
 
 const ApiFunction = () => {
+  let BaseUrl =
+    location.hostname === "localhost"
+      ? "http://localhost:5000/api/"
+      : "https://saeb-mern-ecommerce-server.herokuapp.com/api/";
   const token = localStorage.getItem("token");
   const instance = axios.create({
-    baseURL: "http://localhost:5000/api/",
+    baseURL: BaseUrl,
     headers: {
       Authorization: token ? `Bearer ${token} ` : "",
     },
