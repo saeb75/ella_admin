@@ -12,6 +12,8 @@ let initialState = {
   bestCategory: "",
   bigBanner: "",
   collection: "",
+  homeFourthBanner: "",
+  singleFourthBanner: "",
 };
 
 const bannerReducer = (state = initialState, action) => {
@@ -43,6 +45,8 @@ const bannerReducer = (state = initialState, action) => {
         bestCategory: action.payload.bestCategory,
         bigBanner: action.payload.bigBanner,
         collection: action.payload.collection,
+        homeFourthBanner: action.payload.homeFourthBanner,
+        singleFourthBanner: action.payload.singleFourthBanner,
       };
     case GET_BANNER_FAILURE:
       return {

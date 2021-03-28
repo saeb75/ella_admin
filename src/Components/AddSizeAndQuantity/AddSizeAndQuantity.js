@@ -9,7 +9,7 @@ import Column from "antd/lib/table/Column";
 import "./style.css";
 const { Option } = Select;
 
-const AddSizeAndQuantity = ({ setNewProduct, newProduct }) => {
+const AddSizeAndQuantity = ({ setNewProduct, newProduct, colors }) => {
   const [size, setSize] = useState("");
   const [quantity, setQuantity] = useState("");
   const [AddSizeAndQuantity, setAddSizeAndQuantity] = useState([]);
@@ -26,11 +26,11 @@ const AddSizeAndQuantity = ({ setNewProduct, newProduct }) => {
       ...newProduct,
       AddSizeAndQuantity: [
         ...newProduct.AddSizeAndQuantity,
-        { _id: Date.now(), size: "", quantity: "" },
+        { _id: Date.now(), size: "", quantity: "", color: "" },
       ],
     });
   };
-
+  console.log(colors);
   const handleChange = (id, name, value) => {
     let updatedProduct = newProduct.AddSizeAndQuantity.map((item) =>
       item._id == id ? { ...item, [name]: value } : { ...item }
@@ -68,6 +68,43 @@ const AddSizeAndQuantity = ({ setNewProduct, newProduct }) => {
                         style={{ textTransform: "capitalize" }}
                       >
                         {item}
+                      </option>
+                    );
+                  })}
+                </Select>
+              );
+            }}
+            key="size"
+          />
+          <Column
+            title="color"
+            render={(text, record) => {
+              return (
+                <Select
+                  className="antSelectDesign"
+                  style={{ width: "100%" }}
+                  value={record.color}
+                  onChange={(value) => handleChange(record._id, "color", value)}
+                >
+                  {colors.map((item) => {
+                    return (
+                      <option value={item._id}>
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                          }}
+                        >
+                          <p>{item.prName}</p>
+                          <div
+                            style={{
+                              backgroundColor: `#${item.code}`,
+                              width: "20px",
+                              height: "20px",
+                              marginTop: "4px",
+                            }}
+                          ></div>
+                        </div>
                       </option>
                     );
                   })}

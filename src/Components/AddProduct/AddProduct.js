@@ -22,7 +22,7 @@ const AddProduct = ({ category, product }) => {
     description: product ? product.description : "",
     category: product ? product.category : "",
     price: product ? product.price : "",
-    color: product ? product.color : "",
+    brand: product ? product.brand : "",
     fileList: product ? product.productImg.map((item) => item.img._id) : [],
     AddSizeAndQuantity: product ? product.productDetails : [],
   });
@@ -36,6 +36,7 @@ const AddProduct = ({ category, product }) => {
   };
   const dispatch = useDispatch();
   const color = useSelector((state) => state.color);
+  console.log(color);
   useEffect(() => {
     dispatch(getColors());
   }, []);
@@ -48,9 +49,10 @@ const AddProduct = ({ category, product }) => {
       description: product ? product.description : "",
       category: product ? product.category : "",
       price: product ? product.price : "",
-      color: product ? product.color : "",
+
       fileList: product ? product.productImg.map((item) => item.img._id) : [],
       AddSizeAndQuantity: product ? product.productDetails : [],
+      brand: product ? product.brand : "",
     });
   }, [product]);
   const onFinish = async () => {
@@ -62,7 +64,7 @@ const AddProduct = ({ category, product }) => {
         category: newProduct.category,
         slug: newProduct.slug,
         price: newProduct.price,
-        color: newProduct.color,
+        brand: newProduct.brand,
         productImg: newProduct.fileList,
         id: newProduct._id && newProduct._id,
       })
@@ -140,49 +142,13 @@ const AddProduct = ({ category, product }) => {
                     >
                       {category &&
                         category.map((item) => {
-                          return <option value={item._id}>{item.name}</option>;
+                          return <option value={item._id}>{item.slug}</option>;
                         })}
                     </Select>
                   </div>
                 </Form.Item>
               </Col>
 
-              <Col lg={8} xs={24}>
-                <Form.Item>
-                  <div style={{ display: "flex", flexDirection: "column" }}>
-                    <h3>رنگ:</h3>
-                    <Select
-                      value={newProduct.color}
-                      onChange={(value) => handleChange("color", value)}
-                      showSearch={true}
-                    >
-                      {color.colors.colors &&
-                        color.colors.colors.map((item) => {
-                          return (
-                            <option value={item._id}>
-                              <div
-                                style={{
-                                  display: "flex",
-                                  justifyContent: "space-between",
-                                }}
-                              >
-                                <p>{item.prName}</p>
-                                <div
-                                  style={{
-                                    backgroundColor: `#${item.code}`,
-                                    width: "20px",
-                                    height: "20px",
-                                    marginTop: "4px",
-                                  }}
-                                ></div>
-                              </div>
-                            </option>
-                          );
-                        })}
-                    </Select>
-                  </div>
-                </Form.Item>
-              </Col>
               <Col lg={8} xs={24}>
                 <Form.Item>
                   <div style={{ display: "flex", flexDirection: "column" }}>
@@ -196,6 +162,17 @@ const AddProduct = ({ category, product }) => {
                   </div>
                 </Form.Item>
               </Col>
+              <Col lg={8} xs={24}>
+                <Form.Item>
+                  <div style={{ display: "flex", flexDirection: "column" }}>
+                    <h3> Brand</h3>
+                    <Input
+                      value={newProduct.brand}
+                      onChange={(e) => handleChange("brand", e.target.value)}
+                    />
+                  </div>
+                </Form.Item>
+              </Col>
             </Row>
           </Col>
           <Col lg={24}>
@@ -204,6 +181,7 @@ const AddProduct = ({ category, product }) => {
                 <AddSizeAndQuantity
                   setNewProduct={setNewProduct}
                   newProduct={newProduct}
+                  colors={color.colors.colors}
                 />
               </Col>
               <Col lg={12} xs={24}>

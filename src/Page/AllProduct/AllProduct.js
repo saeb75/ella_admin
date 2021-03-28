@@ -12,6 +12,7 @@ import MyModal from "../../Components/Modal/MyModal";
 import AddProduct from "../../Components/AddProduct/AddProduct";
 import { getListCategory } from "../../Action/CategoryAction";
 import Form from "antd/lib/form/Form";
+import { getColors } from "../../Action/ColorAction";
 const AllProduct = () => {
   const [productUpdateModal, setProductUpdateModal] = useState(false);
   const [productDeleteModal, setProductDeleteModal] = useState(false);
@@ -28,6 +29,7 @@ const AllProduct = () => {
   useEffect(() => {
     dispatch(getProducts());
     dispatch(getListCategory());
+    dispatch(getColors());
   }, []);
   const HandleUpdateModal = (product) => {
     setProductUpdateModal(true);

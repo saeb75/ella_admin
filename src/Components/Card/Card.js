@@ -16,7 +16,12 @@ const MyCard = ({
       <Card
         hoverable
         style={{ width: 300 }}
-        cover={<img alt="example" src={productImg[0].img.image} />}
+        cover={
+          <img
+            alt="example"
+            src={productImg[0] ? productImg[0].img.image : ""}
+          />
+        }
         actions={[
           <DeleteOutlined
             key="setting"
