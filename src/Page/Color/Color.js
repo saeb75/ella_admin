@@ -28,7 +28,7 @@ const Color = () => {
       <div className="colorContainer">
         <h2 style={{ color: "blue", marginBottom: "35px" }}>
           {" "}
-          اضافه کردن رنگ جدید
+          sssssssssssssssssssssاضافه کردن رنگ جدید
         </h2>
         <Form
           name="basic"
