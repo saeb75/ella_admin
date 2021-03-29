@@ -27,12 +27,7 @@ const ImageUploader = ({ onChange, fileList }) => {
         modalCancel="انصراف"
         modalTitle="سایز عکس"
       >
-        <Upload
-          listType="picture-card"
-          fileList={fileList}
-          onChange={onChange}
-          onPreview={onPreview}
-        >
+        <Upload listType="picture-card" fileList={fileList} onChange={onChange}>
           {fileList.length < 1 && "+ Upload"}
         </Upload>
       </ImgCrop>

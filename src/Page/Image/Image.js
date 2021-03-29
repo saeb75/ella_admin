@@ -65,7 +65,6 @@ const ImageUploader = () => {
           <Upload
             listType="picture-card"
             fileList={state.fileList}
-            onPreview={handlePreview}
             withCredentials="100000"
             onChange={handleChange}
           >

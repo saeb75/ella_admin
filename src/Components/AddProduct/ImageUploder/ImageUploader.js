@@ -46,7 +46,6 @@ const ImageUploader = ({ setNewProduct, newProduct }) => {
         <Upload
           listType="picture-card"
           fileList={newProduct.fileList}
-          onPreview={handlePreview}
           onChange={handleChange}
         >
           {newProduct.fileList.length >= 8 ? null : uploadButton}
