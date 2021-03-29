@@ -8,6 +8,7 @@ const { default: axios } = require("axios");
 
 const ApiFunction = () => {
   let BaseUrl = "https://saeb-mern-ecommerce-server.herokuapp.com/api/";
+  /*  "https://saeb-mern-ecommerce-server.herokuapp.com/api/" */
   const token = localStorage.getItem("token");
   const instance = axios.create({
     baseURL: BaseUrl,

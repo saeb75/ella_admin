@@ -25,7 +25,7 @@ const ImageUploader = () => {
 
   const sendForm = async () => {
     let form = new FormData();
-    form.append("image", state.fileList[0].originFileObj);
+    form.append("image", state.fileList[0]);
     await dispatch(addImage(form));
     setState({
       previewVisible: false,
@@ -35,20 +35,10 @@ const ImageUploader = () => {
     });
   };
   const handleCancel = () => setState({ ...state, previewVisible: false });
-  const handleChange = ({ fileList }) => setState({ ...state, fileList });
-  const handlePreview = async (file) => {
-    if (!file.url && !file.preview) {
-      file.preview = await getBase64(file.originFileObj);
-    }
-
-    setState({
-      ...state,
-      previewImage: file.url || file.preview,
-      previewVisible: true,
-      previewTitle:
-        file.name || file.url.substring(file.url.lastIndexOf("/") + 1),
-    });
+  const handleChange = (e) => {
+    setState({ ...state, fileList: e.target.files });
   };
+
   const uploadButton = (
     <div>
       <PlusOutlined />
@@ -58,18 +48,12 @@ const ImageUploader = () => {
   return (
     <MainLayout>
       <div className="imagesContainer">
-        <h2 style={{ color: "blue", marginBottom: "35px" }}>
-          asdsadsاضافه کردن عکس جدید
-        </h2>
+        <h2 style={{ color: "blue", marginBottom: "35px" }}>کردن عکس جدید</h2>
         <div>
-          <Upload
-            listType="picture-card"
-            fileList={state.fileList}
-            withCredentials="100000"
-            onChange={handleChange}
-          >
-            {state.fileList.length >= 1 ? null : uploadButton}
-          </Upload>
+          {/*   <Upload fileList={state.fileList} onChange={handleChange}>
+            <Button>Upload</Button>
+          </Upload> */}
+          <input type="file" onChange={handleChange} />
           <Modal
             visible={state.previewVisible}
             title={state.previewTitle}

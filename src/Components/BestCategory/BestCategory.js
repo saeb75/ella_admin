@@ -35,14 +35,16 @@ const BestCategory = () => {
   useEffect(() => {
     if (banner.bestCategory) {
       let list = [];
-      banner.bestCategory.banners.map((item) => {
-        list.push({
-          ...item,
-          id: item._id,
-          image: item.image._id,
+      if (banner.bestCategory.banners.length > 0) {
+        banner.bestCategory.banners.map((item) => {
+          list.push({
+            ...item,
+            id: item._id,
+            image: item.image._id,
+          });
         });
-      });
-      setBestCategory(list);
+        setBestCategory(list);
+      }
     }
   }, [banner.bestCategory]);
   const handleAdd = (image) => {
