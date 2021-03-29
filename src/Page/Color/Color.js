@@ -26,10 +26,7 @@ const Color = () => {
   return (
     <MainLayout>
       <div className="colorContainer">
-        <h2 style={{ color: "blue", marginBottom: "35px" }}>
-          {" "}
-          sssssssssssssssssssssاضافه کردن رنگ جدید
-        </h2>
+        <h2 style={{ color: "blue", marginBottom: "35px" }}> کردن رنگ جدید</h2>
         <Form
           name="basic"
           initialValues={{ remember: true }}

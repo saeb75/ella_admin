@@ -59,7 +59,7 @@ const ImageUploader = () => {
     <MainLayout>
       <div className="imagesContainer">
         <h2 style={{ color: "blue", marginBottom: "35px" }}>
-          اضافه کردن عکس جدید
+          asdsadsاضافه کردن عکس جدید
         </h2>
         <div>
           <Upload
