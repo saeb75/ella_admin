@@ -1,7 +1,7 @@
 export const SIGNIN_REQUEST = "SIGNIN_REQUEST";
 export const SIGNIN_SUCCESS = "SIGNIN_SUCCESS";
 export const SIGNIN_FAILED = "SIGNIN_FAILED";
-//user
+//users
 export const GET_USER_REQUEST = "GET_USER_REQUEST";
 export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
 export const GET_USER_FAILED = "GET_USER_FAILED";
